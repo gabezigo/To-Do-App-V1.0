@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
+body {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #414e9b;
+  /* background-color: #e5e5e5; */
+}
+
+.header {
+  margin: 0px;
+  position: relative;
+}
+
+.container {
+  margin: 0 auto;
+  background-color: #fff;
+  color: #575766;
+  width: 300px;
+  max-width: 100%;
+  position: relative;
+  border-radius: 2px;
+  padding: 20px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+h3 {
+  margin: 0;
+}
+
+.incompleted-tasks {
+  padding: 0px 10px;
+  visibility: hidden;
+}
+
+.completed-tasks {
+  padding: 0px 10px;
+  visibility: hidden;
+}
+
+.incomplete-task-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 2px;
+}
+
+.complete-task-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 2px;
+}
+
+.incomplete-task-list li {
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.complete-task-list li {
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.completed-tasks-text {
+  margin-top: 8px;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+
+.task-title-1 {
+  margin-bottom: 10px;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.task-title-2 {
+  margin-bottom: 10px;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.add-task-btn {
+  background-color: #414e9b;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: -20px;
+  right: 0px;
+  padding: 5px 13px;
+  font-size: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.add-task-btn:hover {
+  background-color: #416c9b;
+  color: #e5e5e5;
+}
+
+.restart-button {
+  position: absolute;
+  cursor: pointer;
+  left: 215px;
+  bottom: 0px;
+  padding: 3px 6px;
+  background-color: #414e9b;
+  color: #fff;
+  border-color: #fff;
+  border: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.fa-rotate-right {
+  display: none;
+  position: absolute;
+  left: 225px;
+  bottom: 0px;
+  color: #fff;
+  padding: 4px 8px;
+  background-color: #414e9b;
+  border-color: #fff;
+  border: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.to-do-app {
+  position: relative;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline-style: none;
+}
+
+input {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+}
+
+#task-done1,
+#task-done2,
+#task-done3,
+#task-done4,
+#task-done5 {
+  text-decoration: line-through;
+}
