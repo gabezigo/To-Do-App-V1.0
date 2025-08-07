@@ -1,66 +1,82 @@
-/* Reset and basics */
+/*────────────────────────────────────────────────
+  Framer-Inspired Sleek To-Do App Styles (style.css)
+────────────────────────────────────────────────*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #f0f2f5;
+  --fg: #1e1e1e;
+  --card-bg: rgba(255,255,255,0.75);
+  --card-blur: 20px;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --fg: #e5e5e5;
+  --card-bg: rgba(32,32,32,0.8);
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  --shadow-dark: rgba(0, 0, 0, 0.7);
+}
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
+  font-family: 'Inter', sans-serif;
+  transition: background-color .3s, color .3s;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9f9fb;
-  color: #222;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Dark mode styles */
-body.dark {
-  background-color: #121212;
-  color: #eee;
+  padding: 3rem 1rem;
 }
 
 .app {
-  background: rgba(255 255 255 / 0.9);
-  max-width: 480px;
   width: 100%;
-  border-radius: 14px;
+  max-width: 480px;
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--card-blur));
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transition: background 0.3s ease;
-}
-
-body.dark .app {
-  background: rgba(20 20 20 / 0.85);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  box-shadow: 0 10px 30px var(--shadow-light), 0 4px 8px var(--shadow-dark);
+  overflow: hidden;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-h1 {
-  font-weight: 600;
-  font-size: 1.8rem;
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 #theme-toggle {
+  font-size: 1.4rem;
   background: none;
   border: none;
-  font-size: 1.5rem;
   cursor: pointer;
-  color: inherit;
-  padding: 0.25rem 0.5rem;
-  transition: transform 0.2s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
 }
 #theme-toggle:hover {
-  transform: rotate(20deg);
+  background: var(--accent-hover)10;
+  transform: rotate(20deg) scale(1.1);
 }
 
 .input-section {
@@ -70,116 +86,109 @@ h1 {
 }
 
 #task-input {
-  flex-grow: 1;
-  padding: 0.75rem 1rem;
-  border: 2px solid #ddd;
-  border-radius: 10px;
+  flex: 1;
+  padding: 0.9rem 1.2rem;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
-  background: transparent;
-  color: inherit;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.6);
+  color: var(--fg);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 2px 6px var(--shadow-light);
 }
-
 #task-input:focus {
-  border-color: #5a67d8;
   outline: none;
+  box-shadow: 0 0 0 3px var(--accent-hover)50;
 }
 
 #add-task-btn {
-  background-color: #5a67d8;
+  width: 48px; height: 48px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.6rem;
   border: none;
   border-radius: 50%;
-  color: white;
-  font-size: 1.8rem;
-  width: 44px;
-  height: 44px;
+  box-shadow: 0 4px 15px var(--shadow-dark);
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(90,103,216,0.5);
-  transition: background-color 0.3s ease;
+  transition: background .3s, transform .2s;
 }
-
 #add-task-btn:hover {
-  background-color: #434aa8;
+  background: var(--accent-hover);
+  transform: scale(1.05);
 }
 
 #task-list {
   list-style: none;
-  max-height: 350px;
+  max-height: 360px;
   overflow-y: auto;
-  padding-right: 6px; /* for scrollbar spacing */
+  padding-right: 4px;
 }
 
 .task-item {
   display: flex;
   align-items: center;
-  background: rgba(0 0 0 / 0.03);
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.75rem;
-  transition: background 0.3s ease;
   gap: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 4px 10px var(--shadow-light);
+  transition: background .3s, transform .2s;
 }
-
 body.dark .task-item {
-  background: rgba(255 255 255 / 0.05);
+  background: rgba(32,32,32,0.6);
 }
-
 .task-item:hover {
-  background: rgba(90, 103, 216, 0.1);
+  transform: translateY(-2px);
 }
 
 .task-item input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 20px; height: 20px;
+  accent-color: var(--accent);
   cursor: pointer;
-  accent-color: #5a67d8;
+  transition: accent-color .3s;
 }
 
 .task-text {
-  flex-grow: 1;
-  font-size: 1.1rem;
-  word-break: break-word;
-  color: inherit;
-  background: transparent;
+  flex: 1;
+  background: none;
   border: none;
+  font-size: 1.05rem;
+  color: var(--fg);
   outline: none;
-  cursor: text;
-  user-select: text;
 }
-
 .task-text.completed {
   text-decoration: line-through;
-  color: #888;
+  opacity: 0.6;
 }
 
 .task-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .task-actions button {
   background: none;
   border: none;
-  color: #888;
-  cursor: pointer;
   font-size: 1.2rem;
-  transition: color 0.2s ease;
+  color: var(--fg)80;
+  cursor: pointer;
+  transition: color .2s;
+}
+.task-actions button:hover {
+  color: var(--accent-hover);
 }
 
-.task-actions button:hover {
-  color: #5a67d8;
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-top: 2rem;
+  color: var(--fg)80;
 }
 
 @media (max-width: 480px) {
-  .app {
-    padding: 1.5rem 1rem;
-  }
-  h1 {
-    font-size: 1.4rem;
-  }
-  #add-task-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-  }
+  .app { padding: 1.5rem; }
+  header h1 { font-size: 1.6rem; }
+  #add-task-btn { width: 42px; height: 42px; font-size: 1.4rem; }
 }
