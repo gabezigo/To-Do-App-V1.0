@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
+.container-main-page {
+  margin: 0 auto;
+  background-color: #fff;
+  color: #575766;
+  width: 300px;
+  height: 20vh;
+  max-width: 100%;
+  position: relative;
+  border-radius: 2px;
+  padding: 20px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #414e9b;
+  /* background-color: #e5e5e5; */
+}
+
+.main-page-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.add-task-btn-main {
+  background-color: #414e9b;
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  padding: 5px 13px;
+  font-size: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s;
+  display: inline-block;
+}
+
+.add-task-btn-main:hover {
+  background-color: #416c9b;
+  color: #e5e5e5;
+  transition: 0.5s;
+  /* padding-left: 20px; */
+  padding-right: 88px;
+}
+
+.add-task-btn-main:after {
+  font-size: 12px;
+  padding: 10px;
+  content: "New Task";
+  position: absolute;
+  opacity: 0;
+  right: 20px;
+  bottom: 5px;
+  /* right: 20px; */
+  transition: 0.5s;
+  white-space: nowrap;
+  /* background-color: #416c9b; */
+  color: #fff;
+}
+
+.add-task-btn-main:hover:after {
+  opacity: 1;
+}
+
+.header-2 {
+  margin: 0px 10px;
+  margin-top: 20px;
+}
+
+.btnText {
+  margin: 0;
+}
